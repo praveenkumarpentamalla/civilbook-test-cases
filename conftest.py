@@ -20,8 +20,8 @@ def login(setup, setup_logger):
 
     login_page = LoginPage(driver, logger)
     
-    email = "XXXXXXXX"
-    password = "XXXXXXX"
+    email = "XXXXXXX"
+    password = "XXXXXX"
 
     login_page.login(email, password)
     return driver, logger
@@ -29,7 +29,7 @@ def login(setup, setup_logger):
 
 @pytest.fixture(scope="class")
 def setup(request):
-    browser_name = request.config.getoption("browser_name")
+    browser_name = request.config.getoption("--browser_name")
 
     if browser_name == "chrome":
         driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))

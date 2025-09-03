@@ -2,8 +2,8 @@ import pytest
 from pages.login_page import LoginPage
 from pages.home_page import HomePage
 from pages.settings_page import SettingsPage
-from utilities.conftest import login
-from utilities.conftest import setup, setup_logger, pytest_runtest_makereport
+from conftest import login
+from conftest import setup, setup_logger, pytest_runtest_makereport
 from utilities.logger import get_logger
 
 

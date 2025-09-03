@@ -3,9 +3,9 @@ from pages.login_page import LoginPage
 from pages.home_page import HomePage, UpdateProfile
 from pages.settings_page import SettingsPage
 from pages.profile_page import ProfilePage
-from utilities.conftest import setup, setup_logger, pytest_runtest_makereport
+from conftest import setup, setup_logger, pytest_runtest_makereport
 from utilities.logger import get_logger
-from utilities.conftest import login
+from conftest import login
 
 @pytest.mark.usefixtures("setup")
 class TestSettings:
