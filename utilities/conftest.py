@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 from utilities.logger import get_logger
+from pages.login_page import LoginPage
 import os
 
 
@@ -10,6 +11,20 @@ def pytest_addoption(parser):
     parser.addoption(
         "--browser_name", action="store", default="chrome", help="Choose browser: chrome, firefox, or internetexplorer"
     )
+
+
+@pytest.fixture
+def login(setup, setup_logger):
+    driver = setup
+    logger = setup_logger
+
+    login_page = LoginPage(driver, logger)
+    
+    email = "XXXXXXXX"
+    password = "XXXXXXX"
+
+    login_page.login(email, password)
+    return driver, logger
 
 
 @pytest.fixture(scope="class")
@@ -35,7 +50,7 @@ def setup(request):
     driver.get("https://beta.civilbook.in/login")
     driver.maximize_window()
     request.cls.driver = driver
-    yield
+    yield driver
     driver.quit()
 
 
