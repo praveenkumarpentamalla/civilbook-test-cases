@@ -20,8 +20,8 @@ def login(setup, setup_logger):
 
     login_page = LoginPage(driver, logger)
     
-    email = "XXXXXXX"
-    password = "XXXXXX"
+    email = "XXXXXXXXX"
+    password = "XXXXXXXXX"
 
     login_page.login(email, password)
     return driver, logger
